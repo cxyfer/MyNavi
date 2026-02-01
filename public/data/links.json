@@ -1,0 +1,231 @@
+{
+  "groups": [
+    {
+      "name": "開發工具",
+      "items": [
+        {
+          "id": "github",
+          "title": "GitHub",
+          "description": "全球最大的程式碼託管平台，支援 Git 版本控制",
+          "url": "https://github.com",
+          "tags": ["git", "程式碼", "協作"],
+          "group": "開發工具",
+          "icon": "https://github.com/favicon.ico"
+        },
+        {
+          "id": "vscode",
+          "title": "VS Code",
+          "description": "微軟開發的輕量級程式碼編輯器，支援豐富的擴充套件",
+          "url": "https://code.visualstudio.com",
+          "tags": ["編輯器", "IDE", "微軟"],
+          "group": "開發工具",
+          "icon": "https://code.visualstudio.com/favicon.ico"
+        },
+        {
+          "id": "docker",
+          "title": "Docker",
+          "description": "容器化平台，簡化應用程式的部署與管理",
+          "url": "https://www.docker.com",
+          "tags": ["容器", "部署", "DevOps"],
+          "group": "開發工具",
+          "icon": "https://www.docker.com/favicon.ico"
+        },
+        {
+          "id": "postman",
+          "title": "Postman",
+          "description": "API 開發與測試工具，支援自動化測試",
+          "url": "https://www.postman.com",
+          "tags": ["API", "測試", "開發"],
+          "group": "開發工具",
+          "icon": "https://www.postman.com/favicon.ico"
+        },
+        {
+          "id": "vercel",
+          "title": "Vercel",
+          "description": "前端部署平台，支援 Next.js、React 等框架",
+          "url": "https://vercel.com",
+          "tags": ["部署", "前端", "React"],
+          "group": "開發工具",
+          "icon": "https://vercel.com/favicon.ico"
+        },
+        {
+          "id": "figma",
+          "title": "Figma",
+          "description": "線上協作設計工具，支援原型設計與 UI 設計",
+          "url": "https://www.figma.com",
+          "tags": ["設計", "UI", "協作"],
+          "group": "開發工具",
+          "icon": "https://www.figma.com/favicon.ico"
+        }
+      ]
+    },
+    {
+      "name": "學習資源",
+      "items": [
+        {
+          "id": "mdn",
+          "title": "MDN Web Docs",
+          "description": "Mozilla 提供的 Web 技術文件，前端開發必備",
+          "url": "https://developer.mozilla.org",
+          "tags": ["文件", "前端", "教學"],
+          "group": "學習資源",
+          "icon": "https://developer.mozilla.org/favicon.ico"
+        },
+        {
+          "id": "stackoverflow",
+          "title": "Stack Overflow",
+          "description": "全球最大的程式設計問答社群",
+          "url": "https://stackoverflow.com",
+          "tags": ["問答", "社群", "問題解決"],
+          "group": "學習資源",
+          "icon": "https://stackoverflow.com/favicon.ico"
+        },
+        {
+          "id": "freecodecamp",
+          "title": "freeCodeCamp",
+          "description": "免費的程式設計學習平台，提供互動式課程",
+          "url": "https://www.freecodecamp.org",
+          "tags": ["學習", "免費", "課程"],
+          "group": "學習資源",
+          "icon": "https://www.freecodecamp.org/favicon.ico"
+        },
+        {
+          "id": "coursera",
+          "title": "Coursera",
+          "description": "線上課程平台，提供頂尖大學的課程",
+          "url": "https://www.coursera.org",
+          "tags": ["學習", "課程", "證照"],
+          "group": "學習資源",
+          "icon": "https://www.coursera.org/favicon.ico"
+        },
+        {
+          "id": "udemy",
+          "title": "Udemy",
+          "description": "線上課程市集，涵蓋各種技術與非技術主題",
+          "url": "https://www.udemy.com",
+          "tags": ["學習", "課程", "技能"],
+          "group": "學習資源",
+          "icon": "https://www.udemy.com/favicon.ico"
+        }
+      ]
+    },
+    {
+      "name": "框架函式庫",
+      "items": [
+        {
+          "id": "react",
+          "title": "React",
+          "description": "Meta 開發的 UI 函式庫，用於構建使用者介面",
+          "url": "https://react.dev",
+          "tags": ["前端", "UI", "JavaScript"],
+          "group": "框架函式庫",
+          "icon": "https://react.dev/favicon.ico"
+        },
+        {
+          "id": "vue",
+          "title": "Vue.js",
+          "description": "漸進式 JavaScript 框架，易於上手且功能強大",
+          "url": "https://vuejs.org",
+          "tags": ["前端", "框架", "JavaScript"],
+          "group": "框架函式庫",
+          "icon": "https://vuejs.org/favicon.ico"
+        },
+        {
+          "id": "angular",
+          "title": "Angular",
+          "description": "Google 開發的完整前端框架，適合大型應用",
+          "url": "https://angular.io",
+          "tags": ["前端", "框架", "TypeScript"],
+          "group": "框架函式庫",
+          "icon": "https://angular.io/favicon.ico"
+        },
+        {
+          "id": "nextjs",
+          "title": "Next.js",
+          "description": "React 全端框架，支援 SSR 與靜態生成",
+          "url": "https://nextjs.org",
+          "tags": ["React", "SSR", "全端"],
+          "group": "框架函式庫",
+          "icon": "https://nextjs.org/favicon.ico"
+        },
+        {
+          "id": "tailwind",
+          "title": "Tailwind CSS",
+          "description": "實用優先的 CSS 框架，快速構建現代介面",
+          "url": "https://tailwindcss.com",
+          "tags": ["CSS", "樣式", "前端"],
+          "group": "框架函式庫",
+          "icon": "https://tailwindcss.com/favicon.ico"
+        },
+        {
+          "id": "nodejs",
+          "title": "Node.js",
+          "description": "JavaScript 執行環境，用於構建伺服器端應用",
+          "url": "https://nodejs.org",
+          "tags": ["後端", "JavaScript", "執行環境"],
+          "group": "框架函式庫",
+          "icon": "https://nodejs.org/favicon.ico"
+        },
+        {
+          "id": "express",
+          "title": "Express",
+          "description": "簡潔的 Node.js Web 應用框架",
+          "url": "https://expressjs.com",
+          "tags": ["後端", "Node.js", "API"],
+          "group": "框架函式庫",
+          "icon": "https://expressjs.com/favicon.ico"
+        }
+      ]
+    },
+    {
+      "name": "雲端服務",
+      "items": [
+        {
+          "id": "aws",
+          "title": "AWS",
+          "description": "亞馬遜雲端運算服務，提供完整的雲端解決方案",
+          "url": "https://aws.amazon.com",
+          "tags": ["雲端", "AWS", "基礎設施"],
+          "group": "雲端服務",
+          "icon": "https://aws.amazon.com/favicon.ico"
+        },
+        {
+          "id": "gcp",
+          "title": "Google Cloud",
+          "description": "Google 的雲端運算平台，提供 AI 與大數據服務",
+          "url": "https://cloud.google.com",
+          "tags": ["雲端", "Google", "AI"],
+          "group": "雲端服務",
+          "icon": "https://cloud.google.com/favicon.ico"
+        },
+        {
+          "id": "azure",
+          "title": "Azure",
+          "description": "微軟雲端平台，與企業環境整合度高",
+          "url": "https://azure.microsoft.com",
+          "tags": ["雲端", "微軟", "企業"],
+          "group": "雲端服務",
+          "icon": "https://azure.microsoft.com/favicon.ico"
+        },
+        {
+          "id": "cloudflare",
+          "title": "Cloudflare",
+          "description": "CDN 與邊緣運算服務，提供快速安全的網路體驗",
+          "url": "https://www.cloudflare.com",
+          "tags": ["CDN", "安全", "DNS"],
+          "group": "雲端服務",
+          "icon": "https://www.cloudflare.com/favicon.ico"
+        },
+        {
+          "id": "supabase",
+          "title": "Supabase",
+          "description": "開源的 Firebase 替代方案，提供資料庫與認證服務",
+          "url": "https://supabase.com",
+          "tags": ["資料庫", "BaaS", "開源"],
+          "group": "雲端服務",
+          "icon": "https://supabase.com/favicon.ico"
+        }
+      ]
+    }
+  ]
+}
