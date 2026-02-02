@@ -2,6 +2,8 @@
   "groups": [
     {
       "name": "開發工具",
+      "slug": "dev-tools",
+      "icon": "wrench",
       "items": [
         {
           "id": "github",
@@ -61,6 +63,8 @@
     },
     {
       "name": "學習資源",
+      "slug": "learning",
+      "icon": "book-open",
       "items": [
         {
           "id": "mdn",
@@ -111,6 +115,8 @@
     },
     {
       "name": "框架函式庫",
+      "slug": "frameworks",
+      "icon": "package",
       "items": [
         {
           "id": "react",
@@ -179,6 +185,8 @@
     },
     {
       "name": "雲端服務",
+      "slug": "cloud",
+      "icon": "cloud",
       "items": [
         {
           "id": "aws",

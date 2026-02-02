@@ -10,6 +10,8 @@ export interface LinkItem {
 
 export interface LinkGroup {
   name: string
+  slug: string
+  icon?: string
   items: LinkItem[]
 }
 
