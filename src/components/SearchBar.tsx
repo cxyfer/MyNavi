@@ -39,7 +39,7 @@ export function SearchBar({
 
   return (
     <div
-      className="relative flex-1"
+      className="relative flex-1 h-9"
       onFocus={() => onFocusChange?.(true)}
       onBlur={(e) => {
         if (!e.currentTarget.contains(e.relatedTarget as Node)) {
