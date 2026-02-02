@@ -18,7 +18,7 @@ export function NavigationContainer({
   theme,
   onThemeToggle,
 }: NavigationContainerProps) {
-  const { data, items, loading, error, refetch } = useLinks()
+  const { items, loading, error, refetch } = useLinks()
   const {
     searchQuery,
     selectedTags,

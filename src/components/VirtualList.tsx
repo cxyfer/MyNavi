@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { useVirtualizer } from '@tanstack/react-virtual'
-import type { FlattenedItem, LinkItem } from '@/types/link'
+import type { FlattenedItem } from '@/types/link'
 import { LinkRow } from './LinkRow'
 import { GroupHeader } from './GroupHeader'
 

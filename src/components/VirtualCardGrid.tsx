@@ -53,7 +53,6 @@ export function VirtualCardGrid({
   const rows = useMemo<GridRow[]>(() => {
     const result: GridRow[] = []
     let currentCards: LinkItem[] = []
-    let currentGroup = ''
 
     for (const item of items) {
       if (item.type === 'header') {
@@ -72,7 +71,6 @@ export function VirtualCardGrid({
           group: item.group,
           itemCount: item.itemCount,
         })
-        currentGroup = item.group
       } else {
         currentCards.push(item.data)
       }
