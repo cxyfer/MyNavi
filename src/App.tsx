@@ -1,8 +1,10 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import { NaviProvider } from '@/hooks/useNaviStore'
 import { useTheme } from '@/hooks/useTheme'
 import { Layout } from '@/components/Layout'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
+
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '')
 
 function App() {
   const { resolvedTheme } = useTheme()
@@ -11,7 +13,7 @@ function App() {
   const [sidebarCollapsed] = useLocalStorage<boolean>('navi_sidebar_collapsed', false)
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <NaviProvider
         initialViewMode={viewMode}
         initialCollapsedGroups={collapsedGroups}
@@ -28,9 +30,9 @@ function App() {
                   <div className="text-center">
                     <h1 className="text-4xl font-bold mb-4">404</h1>
                     <p className="text-muted-foreground mb-8">頁面不存在</p>
-                    <a href="/" className="text-primary hover:underline">
+                    <Link to="/" className="text-primary hover:underline">
                       返回首頁
-                    </a>
+                    </Link>
                   </div>
                 </div>
               }

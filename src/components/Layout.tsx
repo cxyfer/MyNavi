@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { Sidebar } from './Sidebar'
 import { ControlBar } from './ControlBar'
 import { ContentArea } from './ContentArea'
@@ -80,9 +80,9 @@ export function Layout() {
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">404</h1>
           <p className="text-muted-foreground mb-8">找不到此分類</p>
-          <a href="/" className="text-primary hover:underline">
+          <Link to="/" className="text-primary hover:underline">
             返回首頁
-          </a>
+          </Link>
         </div>
       </div>
     )
