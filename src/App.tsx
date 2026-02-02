@@ -1,34 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { NaviProvider } from '@/hooks/useNaviStore'
+import { useTheme } from '@/hooks/useTheme'
+import { NavigationContainer } from '@/components/NavigationContainer'
+import { useLocalStorage } from '@/hooks/useLocalStorage'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { theme, resolvedTheme, toggleTheme } = useTheme()
+  const [viewMode] = useLocalStorage<'card' | 'list'>('navi_view_mode', 'card')
+  const [collapsedGroups] = useLocalStorage<string[]>('navi_collapsed_groups', [])
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <NaviProvider
+      initialViewMode={viewMode}
+      initialCollapsedGroups={collapsedGroups}
+    >
+      <div className={resolvedTheme}>
+        <NavigationContainer theme={theme} onThemeToggle={toggleTheme} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </NaviProvider>
   )
 }
 
