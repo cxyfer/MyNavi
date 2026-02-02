@@ -20,7 +20,7 @@ export function useLinks(): UseLinksReturn {
     setError(null)
 
     try {
-      const response = await fetch('/data/links.json')
+      const response = await fetch(`${import.meta.env.BASE_URL}data/links.json`)
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
