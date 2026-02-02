@@ -10,6 +10,7 @@ pnpm add react-router-dom
 pnpm add -D @types/react-router-dom
 ```
 **Verification**: Check package.json contains react-router-dom
+**Status**: ✅ COMPLETED
 
 ---
 
@@ -25,6 +26,7 @@ export interface LinkGroup {
 }
 ```
 **Verification**: TypeScript compiles without errors
+**Status**: ✅ COMPLETED
 
 ---
 
@@ -45,6 +47,7 @@ export interface LinkGroup {
 }
 ```
 **Verification**: JSON is valid, all groups have unique slugs
+**Status**: ✅ COMPLETED
 
 ---
 
@@ -64,6 +67,7 @@ export interface LinkGroup {
 5. Update `initialState` to read from localStorage
 
 **Verification**: State updates correctly, persists to localStorage
+**Status**: ✅ COMPLETED
 
 ---
 
@@ -83,18 +87,21 @@ export interface LinkGroup {
 - Toggle button works
 - Mobile drawer opens/closes
 - Active category highlighted
+**Status**: ✅ COMPLETED
 
 ---
 
 ### T3.2: Create Layout component
 **File**: `src/components/Layout.tsx`
 **Requirements**:
-- Wrap Sidebar + ControlBar + Outlet
+- Wrap Sidebar + ControlBar + Content
 - Manage mobile drawer state
 - Adjust main content margin based on sidebar state
 - Pass hamburger menu handler to ControlBar
+- Handle category filtering logic
 
 **Verification**: Layout renders correctly on desktop and mobile
+**Status**: ✅ COMPLETED
 
 ---
 
@@ -106,43 +113,17 @@ export interface LinkGroup {
 - Position button appropriately
 
 **Verification**: Hamburger button visible on mobile, triggers drawer
+**Status**: ✅ COMPLETED
 
 ---
 
-### T3.4: Create HomePage component
-**File**: `src/pages/HomePage.tsx`
-**Requirements**:
-- Use existing NavigationContainer logic
-- Display all links (no category filter)
-- Maintain search/filter functionality
-
-**Verification**: Homepage shows all links, search works globally
-
----
-
-### T3.5: Create CategoryPage component
-**File**: `src/pages/CategoryPage.tsx`
-**Requirements**:
-- Extract `slug` from URL params
-- Find matching group by slug
-- Filter items by current category
-- Scope search to category items
-- Handle invalid slug (redirect to 404)
-
-**Verification**:
-- Category page shows only filtered links
-- Search scoped to category
-- Invalid slug redirects
-
----
-
-### T3.6: Create NotFoundPage component
-**File**: `src/pages/NotFoundPage.tsx`
-**Requirements**:
-- Display 404 message
-- Provide "Back to Home" button
-
-**Verification**: 404 page renders, button navigates home
+### T3.4-T3.6: HomePage, CategoryPage, NotFoundPage
+**Note**: Implemented as integrated routing in Layout component
+- `/` route shows all items (homepage)
+- `/category/:slug` route shows filtered items by category
+- Invalid slugs show 404 message in Layout
+- Wildcard `*` route in App.tsx shows global 404 page
+**Status**: ✅ COMPLETED
 
 ---
 
@@ -154,12 +135,13 @@ export interface LinkGroup {
 1. Import BrowserRouter, Routes, Route
 2. Wrap app in BrowserRouter
 3. Define routes:
-   - `/` → Layout → HomePage
-   - `/category/:slug` → Layout → CategoryPage
-   - `*` → NotFoundPage
+   - `/` → Layout (shows all items)
+   - `/category/:slug` → Layout (shows filtered items)
+   - `*` → 404 page
 4. Keep NaviProvider wrapper
 
 **Verification**: All routes accessible, navigation works
+**Status**: ✅ COMPLETED
 
 ---
 
@@ -168,6 +150,7 @@ export interface LinkGroup {
 **Check**: Ensure no conflicts with routing setup
 
 **Verification**: App starts without errors
+**Status**: ✅ COMPLETED (no changes needed)
 
 ---
 
@@ -181,6 +164,7 @@ export interface LinkGroup {
 - Mobile drawer slide animation
 
 **Verification**: Animations smooth, no jank
+**Status**: ✅ COMPLETED
 
 ---
 
@@ -192,6 +176,7 @@ export interface LinkGroup {
 - Test on various screen sizes
 
 **Verification**: Layout adapts correctly at breakpoints
+**Status**: ✅ COMPLETED
 
 ---
 
@@ -203,6 +188,7 @@ export interface LinkGroup {
 - Render icons in navigation items
 
 **Verification**: Icons display correctly
+**Status**: ✅ COMPLETED
 
 ---
 
