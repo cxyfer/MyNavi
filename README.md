@@ -2,7 +2,26 @@
 
 一個現代化、高效能的個人導航頁面，支援虛擬化列表、模糊搜尋、主題切換與鍵盤快捷操作。
 
-![Build Status](https://github.com/usaya/MyNavi/workflows/Deploy%20to%20GitHub%20Pages/badge.svg)
+![Build Status](https://github.com/cxyfer/MyNavi/actions/workflows/deploy.yml/badge.svg)
+
+[![Deploy to Cloudflare Pages](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cxyfer/MyNavi)
+
+## 使用此模板
+
+```bash
+# 1. 使用 GitHub 的 "Use this template" 按鈕，或直接 clone
+git clone https://github.com/cxyfer/MyNavi.git my-navi
+cd my-navi
+
+# 2. 安裝依賴
+pnpm install
+
+# 3. 編輯你的導航資料
+# 修改 public/data/links.json
+
+# 4. 啟動開發伺服器
+pnpm dev
+```
 
 ## 功能特性
 
