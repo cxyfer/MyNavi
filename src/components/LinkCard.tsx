@@ -73,16 +73,16 @@ export function LinkCard({ item, searchQuery = '', onTagClick }: LinkCardProps) 
                 className="
                   px-2 py-0.5 text-xs cursor-pointer
                   cyber-chamfer
-                  bg-[var(--cyber-muted)]
-                  text-[var(--cyber-foreground)]
-                  border border-[var(--cyber-border)]
-                  hover:border-[var(--cyber-accent-50)]
+                  bg-[hsl(var(--cyber-muted))]
+                  text-[hsl(var(--cyber-foreground))]
+                  border border-[hsl(var(--cyber-border))]
+                  hover:border-[hsl(var(--cyber-accent-50))]
                   hover:cyber-glow
-                  hover:text-[var(--cyber-accent)]
+                  hover:text-[hsl(var(--cyber-accent))]
                   transition-all duration-150 ease-out
                 "
               >
-                <span className="text-[var(--cyber-accent)]">#</span>
+                <span className="text-[hsl(var(--cyber-accent))]">#</span>
                 {tag}
               </span>
             ))}

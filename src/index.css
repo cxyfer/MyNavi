@@ -26,14 +26,14 @@
   --input: 214.3 31.8% 91.4%;
   --ring: 222.2 84% 4.9%;
 
-  /* Cyberpunk Theme Variables */
-  --cyber-background: #0a0a0f;
-  --cyber-foreground: #e0e0e0;
-  --cyber-accent: #00ff88;
-  --cyber-accent-20: rgba(0, 255, 136, 0.2);
-  --cyber-accent-50: rgba(0, 255, 136, 0.5);
-  --cyber-border: #1a1a2e;
-  --cyber-muted: #16213e;
+  /* Cyberpunk Theme Variables - Light (Blue) */
+  --cyber-background: 210 25% 97%;
+  --cyber-foreground: 222 47% 11%;
+  --cyber-accent: 210 100% 50%;
+  --cyber-accent-20: 210 100% 50% / 0.15;
+  --cyber-accent-50: 210 100% 50% / 0.3;
+  --cyber-border: 214 32% 91%;
+  --cyber-muted: 210 40% 96%;
 }
 
 .dark {
@@ -56,6 +56,15 @@
   --border: 217.2 32.6% 17.5%;
   --input: 217.2 32.6% 17.5%;
   --ring: 212.7 26.8% 83.9%;
+
+  /* Cyberpunk Theme Variables - Dark (Green) */
+  --cyber-background: 240 33% 5%;
+  --cyber-foreground: 0 0% 88%;
+  --cyber-accent: 150 100% 50%;
+  --cyber-accent-20: 150 100% 50% / 0.2;
+  --cyber-accent-50: 150 100% 50% / 0.5;
+  --cyber-border: 240 33% 14%;
+  --cyber-muted: 222 47% 16%;
 }
 
 * {
@@ -74,11 +83,11 @@ body {
 
 /* Cyberpunk Utility Classes */
 .cyber-glow {
-  box-shadow: 0 0 8px var(--cyber-accent-50), 0 0 16px var(--cyber-accent-20);
+  box-shadow: 0 0 8px hsl(var(--cyber-accent-50)), 0 0 16px hsl(var(--cyber-accent-20));
 }
 
 .cyber-glow-lg {
-  box-shadow: 0 0 12px var(--cyber-accent-50), 0 0 24px var(--cyber-accent-20), 0 0 36px var(--cyber-accent-20);
+  box-shadow: 0 0 12px hsl(var(--cyber-accent-50)), 0 0 24px hsl(var(--cyber-accent-20)), 0 0 36px hsl(var(--cyber-accent-20));
 }
 
 .cyber-chamfer {
@@ -100,7 +109,7 @@ body {
   content: '';
   position: absolute;
   inset: -2px;
-  background: var(--cyber-accent);
+  background: hsl(var(--cyber-accent));
   clip-path: polygon(
     10px 0%,
     100% 0%,
@@ -114,7 +123,7 @@ body {
   filter: blur(4px);
 }
 
-/* Scanline Effect */
+/* Scanline Effect - Dark */
 .dark body::after {
   content: '';
   position: fixed;
@@ -128,6 +137,40 @@ body {
     rgba(0, 255, 136, 0.03) 4px
   );
   z-index: 9999;
+}
+
+/* Grid Texture - Light */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 24px,
+      rgba(59, 130, 246, 0.03) 24px,
+      rgba(59, 130, 246, 0.03) 25px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 24px,
+      rgba(59, 130, 246, 0.03) 24px,
+      rgba(59, 130, 246, 0.03) 25px
+    );
+  z-index: 9999;
+}
+
+.dark body::after {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 136, 0.03) 2px,
+    rgba(0, 255, 136, 0.03) 4px
+  );
 }
 
 /* Reduced Motion */

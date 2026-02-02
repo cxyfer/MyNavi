@@ -8,6 +8,7 @@ interface SearchBarProps {
   onChange: (value: string) => void
   debounceMs?: number
   placeholder?: string
+  onFocusChange?: (focused: boolean) => void
 }
 
 export function SearchBar({
@@ -15,6 +16,7 @@ export function SearchBar({
   onChange,
   debounceMs = 300,
   placeholder = '搜尋連結...',
+  onFocusChange,
 }: SearchBarProps) {
   const [inputValue, setInputValue] = useState(value)
 
@@ -36,7 +38,15 @@ export function SearchBar({
   }, [onChange])
 
   return (
-    <div className="relative flex-1">
+    <div
+      className="relative flex-1"
+      onFocus={() => onFocusChange?.(true)}
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget as Node)) {
+          onFocusChange?.(false)
+        }
+      }}
+    >
       <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
       <Input
         type="text"
