@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ExternalLink } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
+import { getIconFallback } from '@/lib/utils'
 import type { LinkItem } from '@/types/link'
 
 interface LinkCardProps {
@@ -9,12 +10,7 @@ interface LinkCardProps {
   onTagClick?: (tag: string) => void
 }
 
-function getIconFallback(title: string): string {
-  const chars = [...title]
-  return chars.slice(0, 2).join('')
-}
-
-function highlightText(text: string, query: string): React.ReactNode {
+function highlightText(text: string, query: string) {
   if (!query.trim()) return text
 
   const parts = text.split(new RegExp(`(${query})`, 'gi'))

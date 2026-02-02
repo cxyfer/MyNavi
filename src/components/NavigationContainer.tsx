@@ -59,7 +59,10 @@ export function NavigationContainer({
   )
 
   const handleCommandSelect = useCallback((item: LinkItem) => {
-    window.open(item.url, '_blank', 'noopener,noreferrer')
+    const url = item.url
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+      window.open(url, '_blank', 'noopener,noreferrer')
+    }
   }, [])
 
   if (loading) {
