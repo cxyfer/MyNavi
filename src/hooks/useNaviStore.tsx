@@ -11,6 +11,7 @@ interface NaviState {
   selectedTags: Set<string>
   viewMode: 'card' | 'list'
   collapsedGroups: Set<string>
+  sidebarCollapsed: boolean
 }
 
 type NaviAction =
@@ -20,6 +21,8 @@ type NaviAction =
   | { type: 'SET_VIEW_MODE'; payload: 'card' | 'list' }
   | { type: 'TOGGLE_GROUP'; payload: string }
   | { type: 'SET_COLLAPSED_GROUPS'; payload: Set<string> }
+  | { type: 'TOGGLE_SIDEBAR' }
+  | { type: 'SET_SIDEBAR_COLLAPSED'; payload: boolean }
 
 interface NaviContextValue extends NaviState {
   setSearchQuery: (query: string) => void
@@ -27,6 +30,8 @@ interface NaviContextValue extends NaviState {
   clearFilters: () => void
   setViewMode: (mode: 'card' | 'list') => void
   toggleGroup: (group: string) => void
+  toggleSidebar: () => void
+  setSidebarCollapsed: (collapsed: boolean) => void
 }
 
 const NaviContext = createContext<NaviContextValue | null>(null)
@@ -65,6 +70,12 @@ function naviReducer(state: NaviState, action: NaviAction): NaviState {
     case 'SET_COLLAPSED_GROUPS':
       return { ...state, collapsedGroups: action.payload }
 
+    case 'TOGGLE_SIDEBAR':
+      return { ...state, sidebarCollapsed: !state.sidebarCollapsed }
+
+    case 'SET_SIDEBAR_COLLAPSED':
+      return { ...state, sidebarCollapsed: action.payload }
+
     default:
       return state
   }
@@ -75,23 +86,27 @@ const initialState: NaviState = {
   selectedTags: new Set(),
   viewMode: 'card',
   collapsedGroups: new Set(),
+  sidebarCollapsed: false,
 }
 
 interface NaviProviderProps {
   children: ReactNode
   initialViewMode?: 'card' | 'list'
   initialCollapsedGroups?: string[]
+  initialSidebarCollapsed?: boolean
 }
 
 export function NaviProvider({
   children,
   initialViewMode,
   initialCollapsedGroups,
+  initialSidebarCollapsed,
 }: NaviProviderProps) {
   const [state, dispatch] = useReducer(naviReducer, {
     ...initialState,
     viewMode: initialViewMode ?? initialState.viewMode,
     collapsedGroups: new Set(initialCollapsedGroups ?? []),
+    sidebarCollapsed: initialSidebarCollapsed ?? initialState.sidebarCollapsed,
   })
 
   const value = useMemo<NaviContextValue>(
@@ -105,6 +120,9 @@ export function NaviProvider({
         dispatch({ type: 'SET_VIEW_MODE', payload: mode }),
       toggleGroup: (group) =>
         dispatch({ type: 'TOGGLE_GROUP', payload: group }),
+      toggleSidebar: () => dispatch({ type: 'TOGGLE_SIDEBAR' }),
+      setSidebarCollapsed: (collapsed) =>
+        dispatch({ type: 'SET_SIDEBAR_COLLAPSED', payload: collapsed }),
     }),
     [state]
   )
