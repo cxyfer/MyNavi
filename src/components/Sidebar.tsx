@@ -13,6 +13,7 @@ import {
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { LinkGroup } from '@/types/link'
+import { useAppConfig } from '@/hooks/useAppConfig'
 
 interface SidebarProps {
   groups: LinkGroup[]
@@ -38,6 +39,8 @@ export function Sidebar({
   isMobileOpen,
   onMobileClose,
 }: SidebarProps) {
+  const config = useAppConfig()
+
   const iconMap = useMemo(() => {
     const map: Record<string, LucideIcon> = {}
     groups.forEach((g) => {
@@ -54,15 +57,22 @@ export function Sidebar({
         to="/"
         onClick={() => isMobileOpen && onMobileClose()}
         className={cn(
-          'flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors',
+          'flex items-center rounded-md py-2 text-sm font-medium transition-colors',
           'hover:bg-accent hover:text-accent-foreground',
           !currentSlug && 'bg-accent text-accent-foreground',
-          isCollapsed && 'justify-center px-2'
+          isCollapsed ? 'justify-center px-2' : 'px-3'
         )}
         title={isCollapsed ? '首頁' : undefined}
       >
         <Home className="h-5 w-5 shrink-0" />
-        {!isCollapsed && <span>首頁</span>}
+        <span
+          className={cn(
+            'overflow-hidden transition-all duration-300 whitespace-nowrap',
+            isCollapsed ? 'w-0 opacity-0' : 'w-auto opacity-100 ml-3'
+          )}
+        >
+          首頁
+        </span>
       </Link>
       {groups.map((group) => {
         const Icon = group.icon ? iconMap[group.icon] : Package
@@ -74,15 +84,22 @@ export function Sidebar({
             to={`/category/${group.slug}`}
             onClick={() => isMobileOpen && onMobileClose()}
             className={cn(
-              'flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors',
+              'flex items-center rounded-md py-2 text-sm font-medium transition-colors',
               'hover:bg-accent hover:text-accent-foreground',
               isActive && 'bg-accent text-accent-foreground',
-              isCollapsed && 'justify-center px-2'
+              isCollapsed ? 'justify-center px-2' : 'px-3'
             )}
             title={isCollapsed ? group.name : undefined}
           >
             <Icon className="h-5 w-5 shrink-0" />
-            {!isCollapsed && <span>{group.name}</span>}
+            <span
+              className={cn(
+                'overflow-hidden transition-all duration-300 whitespace-nowrap',
+                isCollapsed ? 'w-0 opacity-0' : 'w-auto opacity-100 ml-3'
+              )}
+            >
+              {group.name}
+            </span>
           </Link>
         )
       })}
@@ -100,14 +117,21 @@ export function Sidebar({
       >
         <div
           className={cn(
-            'flex h-14 items-center border-b',
+            'flex h-14 items-center border-b transition-all duration-300',
             isCollapsed ? 'justify-center px-2' : 'justify-between px-4'
           )}
         >
-          {!isCollapsed && <span className="font-semibold">MyNavi</span>}
+          <span
+            className={cn(
+              'font-semibold overflow-hidden transition-all duration-300 whitespace-nowrap',
+              isCollapsed ? 'w-0 opacity-0' : 'w-auto opacity-100'
+            )}
+          >
+            {config.title}
+          </span>
           <button
             onClick={onToggleCollapse}
-            className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-accent"
+            className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-accent shrink-0"
             aria-label={isCollapsed ? '展開側邊欄' : '收起側邊欄'}
             aria-expanded={!isCollapsed}
           >
@@ -136,7 +160,7 @@ export function Sidebar({
         )}
       >
         <div className="flex h-14 items-center justify-between border-b px-4">
-          <span className="font-semibold">MyNavi</span>
+          <span className="font-semibold">{config.title}</span>
           <button
             onClick={onMobileClose}
             className="inline-flex h-8 w-8 items-center justify-center rounded-md hover:bg-accent"
