@@ -7,7 +7,9 @@ import App from './App.tsx'
 
 async function main() {
   const config = await loadConfig()
-  document.title = config.title
+  document.title = config.description
+    ? `${config.title} - ${config.description}`
+    : config.title
 
   createRoot(document.getElementById('root')!).render(
     <StrictMode>
