@@ -1,10 +1,8 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { HashRouter, Routes, Route, Link } from 'react-router-dom'
 import { NaviProvider } from '@/hooks/useNaviStore'
 import { useTheme } from '@/hooks/useTheme'
 import { Layout } from '@/components/Layout'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
-
-const basename = import.meta.env.BASE_URL.replace(/\/$/, '')
 
 function App() {
   const { resolvedTheme } = useTheme()
@@ -13,7 +11,7 @@ function App() {
   const [sidebarCollapsed] = useLocalStorage<boolean>('navi_sidebar_collapsed', false)
 
   return (
-    <BrowserRouter basename={basename}>
+    <HashRouter>
       <NaviProvider
         initialViewMode={viewMode}
         initialCollapsedGroups={collapsedGroups}
@@ -40,7 +38,7 @@ function App() {
           </Routes>
         </div>
       </NaviProvider>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
