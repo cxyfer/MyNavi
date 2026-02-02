@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { ExternalLink } from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
 import { getIconFallback } from '@/lib/utils'
 import type { LinkItem } from '@/types/link'
 
@@ -61,19 +60,31 @@ export function LinkCard({ item, searchQuery = '', onTagClick }: LinkCardProps) 
           <p className="text-sm text-muted-foreground line-clamp-2 mt-1">
             {highlightText(item.description, searchQuery)}
           </p>
-          <div className="flex flex-wrap gap-1 mt-3">
+          <div className="flex flex-wrap gap-1.5 mt-3">
             {item.tags.map((tag) => (
-              <Badge
+              <span
                 key={tag}
-                variant="secondary"
-                className="text-xs cursor-pointer hover:bg-secondary/80"
+                role="button"
                 onClick={(e) => {
                   e.preventDefault()
+                  e.stopPropagation()
                   onTagClick?.(tag)
                 }}
+                className="
+                  px-2 py-0.5 text-xs cursor-pointer
+                  cyber-chamfer
+                  bg-[var(--cyber-muted)]
+                  text-[var(--cyber-foreground)]
+                  border border-[var(--cyber-border)]
+                  hover:border-[var(--cyber-accent-50)]
+                  hover:cyber-glow
+                  hover:text-[var(--cyber-accent)]
+                  transition-all duration-150 ease-out
+                "
               >
+                <span className="text-[var(--cyber-accent)]">#</span>
                 {tag}
-              </Badge>
+              </span>
             ))}
           </div>
         </div>
