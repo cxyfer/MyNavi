@@ -8,6 +8,7 @@ import {
   ChevronLeft,
   ChevronRight,
   X,
+  Home,
   type LucideIcon,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -49,6 +50,20 @@ export function Sidebar({
 
   const NavItems = () => (
     <nav className="flex-1 space-y-1 p-2">
+      <Link
+        to="/"
+        onClick={() => isMobileOpen && onMobileClose()}
+        className={cn(
+          'flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors',
+          'hover:bg-accent hover:text-accent-foreground',
+          !currentSlug && 'bg-accent text-accent-foreground',
+          isCollapsed && 'justify-center px-2'
+        )}
+        title={isCollapsed ? '首頁' : undefined}
+      >
+        <Home className="h-5 w-5 shrink-0" />
+        {!isCollapsed && <span>首頁</span>}
+      </Link>
       {groups.map((group) => {
         const Icon = group.icon ? iconMap[group.icon] : Package
         const isActive = currentSlug === group.slug
