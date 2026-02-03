@@ -1,11 +1,9 @@
 import { HashRouter, Routes, Route, Link } from 'react-router-dom'
 import { NaviProvider } from '@/hooks/useNaviStore'
-import { useTheme } from '@/hooks/useTheme'
 import { Layout } from '@/components/Layout'
 import { useLocalStorage } from '@/hooks/useLocalStorage'
 
 function App() {
-  const { resolvedTheme } = useTheme()
   const [viewMode] = useLocalStorage<'card' | 'list'>('navi_view_mode', 'card')
   const [collapsedGroups] = useLocalStorage<string[]>('navi_collapsed_groups', [])
   const [sidebarCollapsed] = useLocalStorage<boolean>('navi_sidebar_collapsed', false)
@@ -17,7 +15,7 @@ function App() {
         initialCollapsedGroups={collapsedGroups}
         initialSidebarCollapsed={sidebarCollapsed}
       >
-        <div className={resolvedTheme}>
+        <div>
           <Routes>
             <Route path="/" element={<Layout />} />
             <Route path="/category/:slug" element={<Layout />} />

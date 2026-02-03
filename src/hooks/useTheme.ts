@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useLayoutEffect, useState, useCallback } from 'react'
 
 export type Theme = 'light' | 'dark' | 'system'
 
@@ -48,7 +48,7 @@ export function useTheme(): {
     return () => media.removeEventListener('change', handler)
   }, [])
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!isHydrated) return
 
     const resolved = theme === 'system' ? getSystemTheme() : theme
